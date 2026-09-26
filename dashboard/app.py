@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+from pathlib import Path
 
 # -----------------------------------------------------
 # Page Configuration
@@ -16,7 +17,8 @@ st.set_page_config(
 # -----------------------------------------------------
 @st.cache_data
 def load_data():
-    return pd.read_csv("credora_dashboard_dataset.csv")
+    data_path = Path(__file__).parent / "credora_dashboard_dataset.csv"
+    return pd.read_csv(data_path)
 
 df = load_data()
 
